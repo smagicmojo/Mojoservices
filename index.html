@@ -1,4 +1,4 @@
-<!-- Save as index.html and open in any browser. Fully responsive, with iPad fix included -->
+<!-- Save as index.html and open in a browser. No server required. Host on GitHub Pages/Netlify/Vercel. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,167 +8,195 @@
 <meta name="description" content="Fast, secure PDF editing, image conversion, compression, merge, split, and e-sign tools. No downloads required.">
 <meta property="og:title" content="MOJO Services - PDF Editor & Tools">
 <meta property="og:description" content="Transform your documents effortlessly with MOJO.">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --primary:#1E3A8A;--accent:#3B82F6;--bg:#F8FAFC;--ink:#0f172a;--muted:#475569;
-  --card:#ffffff;--radius:12px;--shadow:0 10px 30px rgba(2,6,23,.08);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-a{text-decoration:none;color:inherit}
-.container{width:min(1100px,92%);margin:auto}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1rem;border:0;border-radius:var(--radius);cursor:pointer;background:var(--accent);color:#fff;box-shadow:var(--shadow);transition:.2s transform,.2s box-shadow}
-.btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(59,130,246,.25)}
-.btn.ghost{background:#fff;color:var(--primary);border:1px solid rgba(30,58,138,.2)}
+:root{--primary:#1E3A8A;--accent:#3B82F6;--bg:#F8FAFC;--ink:#0f172a;--muted:#475569;--card:#fff;--r:12px;--sh:0 10px 26px rgba(2,6,23,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.container{width:min(1120px,92%);margin-inline:auto}
+
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(2,6,23,.06);z-index:50}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0}
-.logo{font-weight:800;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;color:transparent}
+.nav{position:fixed;inset:0 0 auto;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(2,6,23,.06)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0}
+.logo{font-weight:800;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
 .menu{display:flex;gap:1rem;align-items:center}
-.menu a{color:var(--muted);font-weight:600}
-.menu .btn{padding:.6rem .9rem}
-.hamb{display:none;border:1px solid rgba(2,6,23,.1);background:#fff;border-radius:10px;width:40px;height:40px;display:grid;place-items:center}
+.menu a{font-weight:600;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border:0;border-radius:var(--r);background:var(--accent);color:#fff;font-weight:700;box-shadow:var(--sh);transition:.2s transform,.2s box-shadow}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(59,130,246,.25)}
+.btn.ghost{background:#fff;color:var(--primary);border:1px solid rgba(30,58,138,.2)}
+.hamb{display:none;width:40px;height:40px;border:1px solid rgba(2,6,23,.12);border-radius:10px;background:#fff;display:grid;place-items:center}
 .hamb svg{width:18px;height:18px}
 @media (max-width:768px){
-.menu{display:none;position:fixed;right:4%;top:64px;flex-direction:column;background:#fff;border:1px solid rgba(2,6,23,.06);border-radius:12px;padding:10px;width:min(260px,92%);box-shadow:var(--shadow)}
-.menu.open{display:flex}
+  .menu{display:none;position:absolute;right:4%;top:64px;flex-direction:column;gap:.6rem;background:#fff;border:1px solid rgba(2,6,23,.06);border-radius:12px;padding:.6rem;width:min(240px,92%);box-shadow:var(--sh)}
+  .menu.open{display:flex}
 }
+
 /* HERO */
-.hero{padding-top:90px;background:linear-gradient(180deg,#eaf2ff,#f6f9ff 40%,transparent)}
+.hero{padding-top:90px;background:linear-gradient(180deg,#eaf2ff,#f6f9ff 45%,transparent)}
 .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:3rem 0}
-@media(max-width:1024px){.hero-wrap{grid-template-columns:1fr}}
-.h1{font-size:clamp(1.9rem,4vw,3rem);margin:.25rem 0 .5rem}
-.sub{color:var(--muted);max-width:48ch;margin-bottom:1rem}
-.hero-art{justify-self:center;background:#fff;border:1px dashed rgba(59,130,246,.35);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+@media (max-width:1024px){.hero-wrap{grid-template-columns:1fr}}
+.h1{font-size:clamp(1.9rem,4vw,3rem);line-height:1.12;margin:.25rem 0 .6rem}
+.sub{color:var(--muted);max-width:52ch;margin:0 0 1rem}
+.hero-art{justify-self:center;background:#fff;border:1px dashed rgba(59,130,246,.35);border-radius:16px;padding:16px;box-shadow:var(--sh)}
+
 /* SECTIONS */
 .section{padding:64px 0}
 .grid{display:grid;gap:1rem}
-.grid.cols-3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:1024px){.grid.cols-3{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.grid.cols-3{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid rgba(2,6,23,.06);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);transition:.2s transform,.2s box-shadow}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(2,6,23,.12)}
+.cols-3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1024px){.cols-3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:768px){.cols-3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid rgba(2,6,23,.06);border-radius:var(--r);padding:1rem;box-shadow:var(--sh);transition:.18s transform,.18s box-shadow}
+.card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 38px rgba(2,6,23,.12)}
+.card h3{margin:.5rem 0}.card p{color:var(--muted);font-size:.95rem;margin:.4rem 0 1rem}
 .icon{width:28px;height:28px;color:var(--accent)}
+
+/* HOW IT WORKS */
 .steps{display:grid;gap:1rem;grid-template-columns:repeat(4,1fr)}
-@media(max-width:1024px){.steps{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.steps{grid-template-columns:1fr}}
-.step{background:#fff;border:1px solid rgba(2,6,23,.06);border-radius:var(--radius);padding:1rem}
-.badge{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(59,130,246,.12);color:var(--primary);font-weight:800}
+@media (max-width:1024px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:768px){.steps{grid-template-columns:1fr}}
+.step{background:#fff;border:1px solid rgba(2,6,23,.06);border-radius:var(--r);padding:1rem}
+.badge{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:999px;background:rgba(59,130,246,.12);color:var(--primary);font-weight:800;margin-bottom:.25rem}
+
 /* TESTIMONIALS */
-.testi{position:relative;background:#fff;border:1px solid rgba(2,6,23,.06);border-radius:var(--radius);padding:1rem;overflow:hidden}
+.testi{position:relative;background:#fff;border:1px solid rgba(2,6,23,.06);border-radius:var(--r);padding:1rem;overflow:hidden}
 .slider{display:flex;transition:transform .5s ease}
 .slide{min-width:100%;padding:.5rem}
-.quote{font-style:italic}
-.stars{color:#fbbf24}
+.quote{font-style:italic}.stars{color:#fbbf24}
 .arrows{position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:space-between;pointer-events:none}
 .arrows button{pointer-events:auto;border:1px solid rgba(2,6,23,.12);background:#fff;border-radius:10px;padding:.4rem .6rem}
+
 /* FOOTER */
 footer{border-top:1px solid rgba(2,6,23,.06);padding:32px 0;color:var(--muted)}
 footer a{color:var(--muted)}
-/* FADE EFFECTS */
+
+/* FADE-INS */
 .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
 .reveal.show{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}.slider{transition:none}}
 .no-io .reveal{opacity:1!important;transform:none!important}
+
+.center{text-align:center}.mt-2{margin-top:1rem}.mb-0{margin-bottom:0}
 </style>
 </head>
 <body>
-<header class="nav">
+<!-- ===== NAV ===== -->
+<header class="nav" aria-label="Primary navigation">
   <div class="container nav-inner">
-    <a href="#home" class="logo">MOJO Services</a>
-    <button aria-label="Toggle menu" class="hamb" id="navToggle">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    <a href="#home" class="logo" aria-label="MOJO Services Home">MOJO Services</a>
+    <button id="navToggle" class="hamb" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
-    <nav class="menu" id="menu">
+    <nav id="menu" class="menu" aria-label="Main">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
       <a href="#how">How It Works</a>
       <a href="#contact">Contact</a>
-      <a href="#services" class="btn">Get Started</a>
+      <a href="#services" class="btn" aria-label="Get Started">Get Started</a>
     </nav>
   </div>
 </header>
 
 <main id="home">
-<section class="hero">
-  <div class="container hero-wrap">
-    <div class="reveal">
-      <h1 class="h1">Transform Your Documents Effortlessly with MOJO</h1>
-      <p class="sub">Fast, secure PDF editing, image conversion, and compression tools – all in one place. No downloads required.</p>
-      <a href="#services" class="btn">Start Editing Now</a>
-    </div>
-    <div class="hero-art reveal">
-      <svg width="260" height="180" viewBox="0 0 260 180">
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#1E3A8A"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
-        <rect x="14" y="18" rx="12" width="110" height="140" fill="#fff" stroke="url(#g)" stroke-width="2"/>
-        <text x="34" y="60" font-size="22" font-family="Inter" fill="#1E3A8A">PDF</text>
-        <rect x="140" y="28" rx="12" width="110" height="120" fill="#fff" stroke="#3B82F6" stroke-dasharray="6 6"/>
-        <circle cx="195" cy="86" r="26" fill="url(#g)"/>
-        <path d="M180 86h30M195 71v30" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="section">
-  <div class="container">
-    <h2 class="h1" style="text-align:center;font-size:1.8rem">Our Tools</h2>
-    <p class="sub" style="text-align:center">Six focused utilities for your daily docs.</p>
-    <div class="grid cols-3 mt-2">
-      <article class="card reveal"><div class="icon">📝</div><h3>PDF Editor</h3><p>Edit text, add notes, rearrange pages.</p><button class="btn" data-tool="PDF Editor">Try Now</button></article>
-      <article class="card reveal"><div class="icon">🖼️</div><h3>Image to PDF</h3><p>Convert JPG/PNG images into a single PDF.</p><button class="btn" data-tool="Image to PDF">Try Now</button></article>
-      <article class="card reveal"><div class="icon">💨</div><h3>Compress PDF</h3><p>Reduce file size by up to 90% without quality loss.</p><button class="btn" data-tool="Compress PDF">Try Now</button></article>
-      <article class="card reveal"><div class="icon">📚</div><h3>Merge PDFs</h3><p>Combine multiple PDFs into one seamless file.</p><button class="btn" data-tool="Merge PDFs">Try Now</button></article>
-      <article class="card reveal"><div class="icon">✂️</div><h3>Split PDF</h3><p>Extract selected pages or ranges into new PDFs.</p><button class="btn" data-tool="Split PDF">Try Now</button></article>
-      <article class="card reveal"><div class="icon">✍️</div><h3>Add Signature</h3><p>Digitally sign PDFs with drag-and-drop ease.</p><button class="btn" data-tool="Add Signature">Try Now</button></article>
-    </div>
-  </div>
-</section>
-
-<section id="how" class="section">
-  <div class="container">
-    <h2 class="h1" style="text-align:center;font-size:1.8rem">How It Works</h2>
-    <div class="steps mt-2">
-      <div class="step reveal"><span class="badge">1</span><h3>Upload</h3><p>Select or drop your file into the tool.</p></div>
-      <div class="step reveal"><span class="badge">2</span><h3>Select Tool</h3><p>Choose edit, convert, merge, or compress.</p></div>
-      <div class="step reveal"><span class="badge">3</span><h3>Customize</h3><p>Adjust pages, quality, or add signatures.</p></div>
-      <div class="step reveal"><span class="badge">4</span><h3>Download</h3><p>Instantly download your result—no uploads.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2 class="h1" style="text-align:center;font-size:1.8rem">What Users Say</h2>
-    <div class="testi mt-2 reveal">
-      <div class="slider" id="slider">
-        <figure class="slide"><blockquote class="quote">“Saved me hours! Merge and compress tools are perfect.”</blockquote><figcaption><strong>Alex T.</strong> – Designer ⭐⭐⭐⭐⭐</figcaption></figure>
-        <figure class="slide"><blockquote class="quote">“Clean UI, loads fast, and no installs needed.”</blockquote><figcaption><strong>Rina S.</strong> – Researcher ⭐⭐⭐⭐⭐</figcaption></figure>
-        <figure class="slide"><blockquote class="quote">“Signing PDFs on my phone felt effortless. Great!”</blockquote><figcaption><strong>Jamal K.</strong> – Consultant ⭐⭐⭐⭐⭐</figcaption></figure>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div class="reveal">
+        <h1 class="h1">Transform Your Documents Effortlessly with MOJO</h1>
+        <p class="sub">Fast, secure PDF editing, image conversion, and compression tools – all in one place. No downloads required.</p>
+        <a href="#services" class="btn" aria-label="Start Editing Now">Start Editing Now</a>
       </div>
-      <div class="arrows"><button id="prev">‹</button><button id="next">›</button></div>
+      <div class="hero-art reveal" aria-hidden="true">
+        <!-- lightweight illustrative SVG -->
+        <svg width="260" height="180" viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1E3A8A"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs>
+          <rect x="14" y="18" rx="12" width="110" height="140" fill="#fff" stroke="url(#g)" stroke-width="2"/>
+          <text x="34" y="60" font-size="22" font-family="Inter" fill="#1E3A8A">PDF</text>
+          <rect x="140" y="28" rx="12" width="110" height="120" fill="#fff" stroke="#3B82F6" stroke-dasharray="6 6"/>
+          <circle cx="195" cy="86" r="26" fill="url(#g)"/>
+          <path d="M180 86h30M195 71v30" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="center h1" style="font-size:1.8rem">Our Tools</h2>
+      <p class="center sub">Six focused utilities for everyday documents.</p>
+      <div class="grid cols-3 mt-2">
+        <article class="card reveal"><div class="icon">📝</div><h3>PDF Editor</h3><p>Edit text, add annotations, and rearrange pages.</p><button class="btn" data-tool="PDF Editor">Try Now</button></article>
+        <article class="card reveal"><div class="icon">🖼️</div><h3>Image to PDF</h3><p>Convert JPG/PNG (single or multiple) into a PDF.</p><button class="btn" data-tool="Image to PDF">Try Now</button></article>
+        <article class="card reveal"><div class="icon">📉</div><h3>Compress PDF</h3><p>Reduce file size up to 90% while preserving clarity.</p><button class="btn" data-tool="Compress PDF">Try Now</button></article>
+        <article class="card reveal"><div class="icon">📎</div><h3>Merge PDFs</h3><p>Combine multiple PDFs into one.</p><button class="btn" data-tool="Merge PDFs">Try Now</button></article>
+        <article class="card reveal"><div class="icon">✂️</div><h3>Split PDF</h3><p>Extract specific pages or ranges into a new PDF.</p><button class="btn" data-tool="Split PDF">Try Now</button></article>
+        <article class="card reveal"><div class="icon">✍️</div><h3>Add Signature</h3><p>Drag-and-drop digital signing.</p><button class="btn" data-tool="Add Signature">Try Now</button></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how" class="section">
+    <div class="container">
+      <h2 class="center h1" style="font-size:1.8rem">How It Works</h2>
+      <div class="steps mt-2">
+        <div class="step reveal"><span class="badge">1</span><h3>Upload</h3><p class="mb-0">Choose a file or drag & drop it into a tool.</p></div>
+        <div class="step reveal"><span class="badge">2</span><h3>Select Tool</h3><p class="mb-0">Pick edit, convert, compress, merge, split, or sign.</p></div>
+        <div class="step reveal"><span class="badge">3</span><h3>Customize</h3><p class="mb-0">Adjust pages, order, quality, or signature.</p></div>
+        <div class="step reveal"><span class="badge">4</span><h3>Download</h3><p class="mb-0">Save your processed file instantly.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="center h1" style="font-size:1.8rem">What Users Say</h2>
+      <div class="testi mt-2 reveal" aria-roledescription="carousel">
+        <div class="slider" id="slider">
+          <figure class="slide">
+            <blockquote class="quote">“Saved me hours! Merge and compress are spot on.”</blockquote>
+            <figcaption><strong>Alex T.</strong> · Designer <span class="stars">★★★★★</span></figcaption>
+          </figure>
+          <figure class="slide">
+            <blockquote class="quote">“Clean UI, fast, and no installs. Love it.”</blockquote>
+            <figcaption><strong>Rina S.</strong> · Researcher <span class="stars">★★★★★</span></figcaption>
+          </figure>
+          <figure class="slide">
+            <blockquote class="quote">“Signing PDFs from my phone was effortless.”</blockquote>
+            <figcaption><strong>Jamal K.</strong> · Consultant <span class="stars">★★★★★</span></figcaption>
+          </figure>
+        </div>
+        <div class="arrows" aria-hidden="false">
+          <button aria-label="Previous testimonial" id="prev">‹</button>
+          <button aria-label="Next testimonial" id="next">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
+<!-- ===== FOOTER ===== -->
 <footer id="contact">
-  <div class="container">
+  <div class="container center">
     <p><strong>Contact:</strong> <a href="mailto:support@mojoservices.com">support@mojoservices.com</a></p>
+    <p>
+      <a href="#" aria-label="Twitter/X" style="margin-right:.5rem">🐦</a>
+      <a href="#" aria-label="LinkedIn">🔗</a>
+    </p>
     <p>© 2025 MOJO Services · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
   </div>
 </footer>
 
-<dialog id="modal" style="border:0;border-radius:14px;box-shadow:var(--shadow);padding:0">
+<!-- ===== DEMO MODAL ===== -->
+<dialog id="modal" aria-label="Upload demo" style="border:0;border-radius:14px;box-shadow:var(--sh);max-width:520px;width:92%">
   <form method="dialog" style="padding:1rem;background:#fff;border-radius:14px">
     <h3 id="modalTitle">Upload</h3>
     <p class="sub">This is a demo. Choose a file to simulate an upload.</p>
-    <input type="file" style="width:100%;padding:.6rem;border-radius:10px;border:1px solid rgba(2,6,23,.15)">
+    <input type="file" aria-label="Choose file" style="width:100%;padding:.6rem;border:1px solid rgba(2,6,23,.15);border-radius:10px">
     <div style="display:flex;gap:.5rem;justify-content:flex-end;margin-top:1rem">
       <button class="btn ghost">Cancel</button>
       <button class="btn" id="modalGo">Upload</button>
@@ -177,48 +205,40 @@ footer a{color:var(--muted)}
 </dialog>
 
 <script>
-/* Navigation toggle */
+/* Mobile nav toggle (ESC closes) */
 const navBtn=document.getElementById('navToggle'),menu=document.getElementById('menu');
 navBtn.addEventListener('click',()=>menu.classList.toggle('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')menu.classList.remove('open')});
+document.addEventListener('click',e=>{if(!menu.contains(e.target)&&e.target!==navBtn)menu.classList.remove('open')});
 menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
 
-/* Fade-ins with Safari/iPad fallback */
+/* Fade-ins with IO + Safari/iOS fallback */
 (function(){
-  const els=Array.from(document.querySelectorAll('.reveal'));
-  if(!('IntersectionObserver'in window)){
-    document.documentElement.classList.add('no-io');
-    els.forEach(el=>el.classList.add('show'));
-    return;
+  const els=[...document.querySelectorAll('.reveal')];
+  if(!('IntersectionObserver' in window)){
+    document.documentElement.classList.add('no-io');els.forEach(el=>el.classList.add('show'));return;
   }
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target);}
-    });
-  },{threshold:.15});
+  const io=new IntersectionObserver((entries)=>entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}
+  }),{threshold:.12});
   els.forEach(el=>io.observe(el));
-  setTimeout(()=>{
-    if(els.some(el=>!el.classList.contains('show'))){
-      els.forEach(el=>el.classList.add('show'));
-    }
-  },600);
+  setTimeout(()=>{if(els.some(el=>!el.classList.contains('show')))els.forEach(el=>el.classList.add('show'))},800);
 })();
 
-/* Demo modal */
+/* Demo modal for "Try Now" */
 const modal=document.getElementById('modal'),title=document.getElementById('modalTitle'),go=document.getElementById('modalGo');
-document.querySelectorAll('[data-tool]').forEach(btn=>{
-  btn.addEventListener('click',()=>{title.textContent=btn.dataset.tool;modal.showModal();});
-});
-go.addEventListener('click',e=>{e.preventDefault();alert('Upload simulated');modal.close();});
-modal.addEventListener('click',e=>{const r=modal.getBoundingClientRect();if(!(e.clientX>r.left&&e.clientX<r.right&&e.clientY>r.top&&e.clientY<r.bottom))modal.close();});
+document.querySelectorAll('[data-tool]').forEach(b=>b.addEventListener('click',()=>{title.textContent=b.dataset.tool;modal.showModal()}));
+go.addEventListener('click',e=>{e.preventDefault();alert('Upload simulated');modal.close()});
+modal.addEventListener('click',e=>{const r=modal.getBoundingClientRect();if(!(e.clientX>r.left&&e.clientX<r.right&&e.clientY>r.top&&e.clientY<r.bottom))modal.close()});
 
-/* Testimonials slider */
-const slider=document.getElementById('slider');let idx=0,n=slider.children.length;
-function show(i){idx=(i+n)%n;slider.style.transform=`translateX(-${idx*100}%)`;}
-document.getElementById('prev').onclick=()=>show(idx-1);
-document.getElementById('next').onclick=()=>show(idx+1);
-let t=setInterval(()=>show(idx+1),5000);
+/* Testimonials carousel */
+const slider=document.getElementById('slider');let i=0,n=slider.children.length;
+function show(k){i=(k+n)%n;slider.style.transform=`translateX(-${i*100}%)`}
+document.getElementById('prev').onclick=()=>show(i-1);
+document.getElementById('next').onclick=()=>show(i+1);
+let t=setInterval(()=>show(i+1),5000);
 slider.addEventListener('mouseenter',()=>clearInterval(t));
-slider.addEventListener('mouseleave',()=>t=setInterval(()=>show(idx+1),5000));
+slider.addEventListener('mouseleave',()=>t=setInterval(()=>show(i+1),5000));
 </script>
 </body>
 </html>
