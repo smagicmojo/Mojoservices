@@ -1,4 +1,4 @@
-<!-- Save as index.html and open in a browser. No server required. Host on GitHub Pages/Netlify/Vercel. -->
+<!-- Save as index.html and open in a modern browser. No server needed. Host on GitHub Pages/Netlify/Vercel. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,15 +13,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--primary:#1E3A8A;--accent:#3B82F6;--bg:#F8FAFC;--ink:#0f172a;--muted:#475569;--card:#fff;--r:12px;--sh:0 10px 26px rgba(2,6,23,.08)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
-a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
-.container{width:min(1120px,92%);margin-inline:auto}
+:root{
+  --primary:#1E3A8A; --accent:#3B82F6; --bg:#F8FAFC; --ink:#0f172a; --muted:#475569;
+  --card:#fff; --r:12px; --sh:0 10px 26px rgba(2,6,23,.08);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:inherit;text-decoration:none} button{font:inherit;cursor:pointer}
+.container{width:min(1140px,92%);margin-inline:auto}
 
 /* NAV */
-.nav{position:fixed;inset:0 0 auto;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(2,6,23,.06)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(2,6,23,.06)}
 .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0}
-.logo{font-weight:800;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo{font-weight:800;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.2px}
 .menu{display:flex;gap:1rem;align-items:center}
 .menu a{font-weight:600;color:var(--muted)}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border:0;border-radius:var(--r);background:var(--accent);color:#fff;font-weight:700;box-shadow:var(--sh);transition:.2s transform,.2s box-shadow}
@@ -30,7 +34,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
 .hamb{display:none;width:40px;height:40px;border:1px solid rgba(2,6,23,.12);border-radius:10px;background:#fff;display:grid;place-items:center}
 .hamb svg{width:18px;height:18px}
 @media (max-width:768px){
-  .menu{display:none;position:absolute;right:4%;top:64px;flex-direction:column;gap:.6rem;background:#fff;border:1px solid rgba(2,6,23,.06);border-radius:12px;padding:.6rem;width:min(240px,92%);box-shadow:var(--sh)}
+  .menu{display:none;position:absolute;right:4%;top:64px;flex-direction:column;gap:.6rem;background:#fff;border:1px solid rgba(2,6,23,.06);border-radius:12px;padding:.6rem;width:min(260px,92%);box-shadow:var(--sh)}
   .menu.open{display:flex}
 }
 
@@ -42,7 +46,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
 .sub{color:var(--muted);max-width:52ch;margin:0 0 1rem}
 .hero-art{justify-self:center;background:#fff;border:1px dashed rgba(59,130,246,.35);border-radius:16px;padding:16px;box-shadow:var(--sh)}
 
-/* SECTIONS */
+/* SECTIONS / CARDS */
 .section{padding:64px 0}
 .grid{display:grid;gap:1rem}
 .cols-3{grid-template-columns:repeat(3,1fr)}
@@ -50,7 +54,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
 @media (max-width:768px){.cols-3{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid rgba(2,6,23,.06);border-radius:var(--r);padding:1rem;box-shadow:var(--sh);transition:.18s transform,.18s box-shadow}
 .card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 38px rgba(2,6,23,.12)}
-.card h3{margin:.5rem 0}.card p{color:var(--muted);font-size:.95rem;margin:.4rem 0 1rem}
+.card h3{margin:.4rem 0}.card p{color:var(--muted);font-size:.95rem;margin:.3rem 0 1rem}
 .icon{width:28px;height:28px;color:var(--accent)}
 
 /* HOW IT WORKS */
@@ -68,16 +72,22 @@ a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
 .arrows{position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:space-between;pointer-events:none}
 .arrows button{pointer-events:auto;border:1px solid rgba(2,6,23,.12);background:#fff;border-radius:10px;padding:.4rem .6rem}
 
-/* FOOTER */
+/* TOOLS UI */
+.tool{display:grid;gap:.6rem}
+.drop{border:1.5px dashed #b7c8f7;background:#f5f8ff;border-radius:10px;padding:14px;text-align:center}
+.row{display:flex;gap:.6rem;flex-wrap:wrap}
+.row>*{flex:1}
+.input, select{width:100%;padding:.6rem;border-radius:10px;border:1px solid rgba(2,6,23,.15)}
+.small{font-size:.9rem;color:var(--muted)}
+.hr{height:1px;background:rgba(2,6,23,.06);margin:.6rem 0}
+
+/* FOOTER + EFFECTS */
 footer{border-top:1px solid rgba(2,6,23,.06);padding:32px 0;color:var(--muted)}
 footer a{color:var(--muted)}
-
-/* FADE-INS */
 .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
 .reveal.show{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}.slider{transition:none}}
 .no-io .reveal{opacity:1!important;transform:none!important}
-
 .center{text-align:center}.mt-2{margin-top:1rem}.mb-0{margin-bottom:0}
 </style>
 </head>
@@ -126,14 +136,118 @@ footer a{color:var(--muted)}
   <section id="services" class="section">
     <div class="container">
       <h2 class="center h1" style="font-size:1.8rem">Our Tools</h2>
-      <p class="center sub">Six focused utilities for everyday documents.</p>
+      <p class="center sub">Six focused utilities you can run right now, in your browser.</p>
+
+      <!-- Tools Grid -->
       <div class="grid cols-3 mt-2">
-        <article class="card reveal"><div class="icon">📝</div><h3>PDF Editor</h3><p>Edit text, add annotations, and rearrange pages.</p><button class="btn" data-tool="PDF Editor">Try Now</button></article>
-        <article class="card reveal"><div class="icon">🖼️</div><h3>Image to PDF</h3><p>Convert JPG/PNG (single or multiple) into a PDF.</p><button class="btn" data-tool="Image to PDF">Try Now</button></article>
-        <article class="card reveal"><div class="icon">📉</div><h3>Compress PDF</h3><p>Reduce file size up to 90% while preserving clarity.</p><button class="btn" data-tool="Compress PDF">Try Now</button></article>
-        <article class="card reveal"><div class="icon">📎</div><h3>Merge PDFs</h3><p>Combine multiple PDFs into one.</p><button class="btn" data-tool="Merge PDFs">Try Now</button></article>
-        <article class="card reveal"><div class="icon">✂️</div><h3>Split PDF</h3><p>Extract specific pages or ranges into a new PDF.</p><button class="btn" data-tool="Split PDF">Try Now</button></article>
-        <article class="card reveal"><div class="icon">✍️</div><h3>Add Signature</h3><p>Drag-and-drop digital signing.</p><button class="btn" data-tool="Add Signature">Try Now</button></article>
+
+        <!-- Merge PDFs -->
+        <article class="card reveal">
+          <div class="icon">📎</div>
+          <h3>Merge PDFs</h3>
+          <p>Combine multiple PDFs (reorder) with optional text watermark.</p>
+          <div class="tool">
+            <div class="drop">
+              <input id="mergeInput" type="file" accept="application/pdf" multiple>
+            </div>
+            <div class="row">
+              <input id="wmText" class="input" placeholder="Watermark text (optional)">
+              <select id="wmPos" class="input">
+                <option value="center">Center</option><option value="top">Top</option><option value="bottom">Bottom</option>
+                <option value="tl">Top-Left</option><option value="tr">Top-Right</option><option value="bl">Bottom-Left</option><option value="br">Bottom-Right</option>
+              </select>
+            </div>
+            <div class="small">Tip: select files in the order you want. Re-run if you need a different order.</div>
+            <button class="btn" id="mergeBtn">Merge & Download</button>
+          </div>
+        </article>
+
+        <!-- Split PDF -->
+        <article class="card reveal">
+          <div class="icon">✂️</div>
+          <h3>Split PDF</h3>
+          <p>Extract specific pages or ranges into a new PDF.</p>
+          <div class="tool">
+            <div class="drop"><input id="splitInput" type="file" accept="application/pdf"></div>
+            <input id="splitRanges" class="input" placeholder="Page ranges e.g. 1-3,5,8-10">
+            <button class="btn" id="splitBtn">Split & Download</button>
+          </div>
+        </article>
+
+        <!-- Compress PDF -->
+        <article class="card reveal">
+          <div class="icon">📉</div>
+          <h3>Compress PDF</h3>
+          <p>Rasterize pages and re-embed at chosen quality/DPI.</p>
+          <div class="tool">
+            <div class="drop"><input id="compressInput" type="file" accept="application/pdf"></div>
+            <div class="row">
+              <label class="small">Quality (JPEG): <input id="quality" type="range" min="0.2" max="0.92" step="0.02" value="0.7"></label>
+              <label class="small">DPI: <input id="dpi" type="number" class="input" value="144" min="72" step="24"></label>
+            </div>
+            <button class="btn" id="compressBtn">Compress & Download</button>
+            <div class="small">Note: For scanned/heavy-image PDFs, this can reduce size significantly.</div>
+          </div>
+        </article>
+
+        <!-- Image to PDF -->
+        <article class="card reveal">
+          <div class="icon">🖼️</div>
+          <h3>Image → PDF</h3>
+          <p>Convert JPG/PNG to a single PDF (A4/Letter/Fit + margins).</p>
+          <div class="tool">
+            <div class="drop"><input id="imgInput" type="file" accept="image/png,image/jpeg" multiple></div>
+            <div class="row">
+              <select id="pageSize" class="input">
+                <option value="A4">A4</option><option value="Letter">Letter</option><option value="FitImage">Fit to image</option>
+              </select>
+              <input id="margin" class="input" type="number" value="24" min="0" step="2" placeholder="Margins (pt)">
+            </div>
+            <button class="btn" id="img2pdfBtn">Create PDF</button>
+          </div>
+        </article>
+
+        <!-- Add Signature -->
+        <article class="card reveal">
+          <div class="icon">✍️</div>
+          <h3>Add Signature</h3>
+          <p>Draw a signature and place it on a specific page.</p>
+          <div class="tool">
+            <div class="drop"><input id="signPdfInput" type="file" accept="application/pdf"></div>
+            <canvas id="signPad" width="420" height="140" style="border:1px dashed #c7d2fe;border-radius:8px;background:#fff"></canvas>
+            <div class="row">
+              <input id="signPage" class="input" type="number" min="1" value="1" placeholder="Page #">
+              <select id="signPos" class="input">
+                <option value="br">Bottom-Right</option><option value="bl">Bottom-Left</option><option value="tr">Top-Right</option><option value="tl">Top-Left</option><option value="center">Center</option>
+              </select>
+            </div>
+            <div class="row">
+              <button class="btn ghost" id="clearSign">Clear</button>
+              <button class="btn" id="applySign">Apply & Download</button>
+            </div>
+            <div class="small">Draw with your mouse/finger. Signature image is placed at ~30% width of the page area.</div>
+          </div>
+        </article>
+
+        <!-- PDF Editor (Reorder/Watermark pages of a single PDF) -->
+        <article class="card reveal">
+          <div class="icon">📝</div>
+          <h3>PDF Editor</h3>
+          <p>Reorder pages of a single PDF and add a watermark.</p>
+          <div class="tool">
+            <div class="drop"><input id="editInput" type="file" accept="application/pdf"></div>
+            <input id="editOrder" class="input" placeholder="Page order (e.g., 3,1,2 or 1-3,5,4)">
+            <div class="row">
+              <input id="editWm" class="input" placeholder="Watermark text (optional)">
+              <select id="editWmPos" class="input">
+                <option value="center">Center</option><option value="top">Top</option><option value="bottom">Bottom</option>
+                <option value="tl">Top-Left</option><option value="tr">Top-Right</option><option value="bl">Bottom-Left</option><option value="br">Bottom-Right</option>
+              </select>
+            </div>
+            <button class="btn" id="editApply">Reorder & Download</button>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -143,10 +257,10 @@ footer a{color:var(--muted)}
     <div class="container">
       <h2 class="center h1" style="font-size:1.8rem">How It Works</h2>
       <div class="steps mt-2">
-        <div class="step reveal"><span class="badge">1</span><h3>Upload</h3><p class="mb-0">Choose a file or drag & drop it into a tool.</p></div>
+        <div class="step reveal"><span class="badge">1</span><h3>Upload</h3><p class="mb-0">Choose a file (or multiple) — processing stays in your browser.</p></div>
         <div class="step reveal"><span class="badge">2</span><h3>Select Tool</h3><p class="mb-0">Pick edit, convert, compress, merge, split, or sign.</p></div>
-        <div class="step reveal"><span class="badge">3</span><h3>Customize</h3><p class="mb-0">Adjust pages, order, quality, or signature.</p></div>
-        <div class="step reveal"><span class="badge">4</span><h3>Download</h3><p class="mb-0">Save your processed file instantly.</p></div>
+        <div class="step reveal"><span class="badge">3</span><h3>Customize</h3><p class="mb-0">Adjust pages, order, quality, margins, or signature.</p></div>
+        <div class="step reveal"><span class="badge">4</span><h3>Download</h3><p class="mb-0">Get your result instantly — private & secure.</p></div>
       </div>
     </div>
   </section>
@@ -157,23 +271,11 @@ footer a{color:var(--muted)}
       <h2 class="center h1" style="font-size:1.8rem">What Users Say</h2>
       <div class="testi mt-2 reveal" aria-roledescription="carousel">
         <div class="slider" id="slider">
-          <figure class="slide">
-            <blockquote class="quote">“Saved me hours! Merge and compress are spot on.”</blockquote>
-            <figcaption><strong>Alex T.</strong> · Designer <span class="stars">★★★★★</span></figcaption>
-          </figure>
-          <figure class="slide">
-            <blockquote class="quote">“Clean UI, fast, and no installs. Love it.”</blockquote>
-            <figcaption><strong>Rina S.</strong> · Researcher <span class="stars">★★★★★</span></figcaption>
-          </figure>
-          <figure class="slide">
-            <blockquote class="quote">“Signing PDFs from my phone was effortless.”</blockquote>
-            <figcaption><strong>Jamal K.</strong> · Consultant <span class="stars">★★★★★</span></figcaption>
-          </figure>
+          <figure class="slide"><blockquote class="quote">“Merged and signed three PDFs in minutes. Love the speed.”</blockquote><figcaption><strong>Alex T.</strong> · Designer <span class="stars">★★★★★</span></figcaption></figure>
+          <figure class="slide"><blockquote class="quote">“Compression dropped a 20MB scan to 2.4MB with good quality.”</blockquote><figcaption><strong>Rina S.</strong> · Researcher <span class="stars">★★★★★</span></figcaption></figure>
+          <figure class="slide"><blockquote class="quote">“Image to PDF saved me for a last-minute submission.”</blockquote><figcaption><strong>Jamal K.</strong> · Consultant <span class="stars">★★★★★</span></figcaption></figure>
         </div>
-        <div class="arrows" aria-hidden="false">
-          <button aria-label="Previous testimonial" id="prev">‹</button>
-          <button aria-label="Next testimonial" id="next">›</button>
-        </div>
+        <div class="arrows"><button aria-label="Previous" id="prev">‹</button><button aria-label="Next" id="next">›</button></div>
       </div>
     </div>
   </section>
@@ -183,62 +285,199 @@ footer a{color:var(--muted)}
 <footer id="contact">
   <div class="container center">
     <p><strong>Contact:</strong> <a href="mailto:support@mojoservices.com">support@mojoservices.com</a></p>
-    <p>
-      <a href="#" aria-label="Twitter/X" style="margin-right:.5rem">🐦</a>
-      <a href="#" aria-label="LinkedIn">🔗</a>
-    </p>
+    <p><a href="#" aria-label="Twitter/X" style="margin-right:.5rem">🐦</a><a href="#" aria-label="LinkedIn">🔗</a></p>
     <p>© 2025 MOJO Services · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
   </div>
 </footer>
 
-<!-- ===== DEMO MODAL ===== -->
-<dialog id="modal" aria-label="Upload demo" style="border:0;border-radius:14px;box-shadow:var(--sh);max-width:520px;width:92%">
-  <form method="dialog" style="padding:1rem;background:#fff;border-radius:14px">
-    <h3 id="modalTitle">Upload</h3>
-    <p class="sub">This is a demo. Choose a file to simulate an upload.</p>
-    <input type="file" aria-label="Choose file" style="width:100%;padding:.6rem;border:1px solid rgba(2,6,23,.15);border-radius:10px">
-    <div style="display:flex;gap:.5rem;justify-content:flex-end;margin-top:1rem">
-      <button class="btn ghost">Cancel</button>
-      <button class="btn" id="modalGo">Upload</button>
-    </div>
-  </form>
-</dialog>
-
+<!-- ===== LIBRARIES (CDN) ===== -->
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://unpkg.com/pdfjs-dist@4.0.379/build/pdf.min.js"></script>
 <script>
-/* Mobile nav toggle (ESC closes) */
-const navBtn=document.getElementById('navToggle'),menu=document.getElementById('menu');
-navBtn.addEventListener('click',()=>menu.classList.toggle('open'));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')menu.classList.remove('open')});
-document.addEventListener('click',e=>{if(!menu.contains(e.target)&&e.target!==navBtn)menu.classList.remove('open')});
-menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+/* ---------- Utilities ---------- */
+const $ = s => document.querySelector(s);
+function blobDownload(blob, name){ const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(url), 4000); }
+async function fileToArrayBuffer(file){ return await file.arrayBuffer(); }
+function parseRanges(str, max){
+  // "1-3,5,8-10" => [0,1,2,4,7,8,9] (0-based)
+  const out=new Set();
+  for(const part of str.split(',').map(s=>s.trim()).filter(Boolean)){
+    const m=part.match(/^(\d+)(?:-(\d+))?$/); if(!m) continue;
+    let a=+m[1], b=m[2]?+m[2]:a;
+    if(a>b) [a,b]=[b,a];
+    for(let i=a;i<=b;i++){ if(i>=1 && (!max || i<=max)) out.add(i-1); }
+  }
+  return [...out].sort((x,y)=>x-y);
+}
+function parseOrder(str, max){
+  // "3,1,2" or "1-3,5,4"
+  const inds=parseRanges(str, max);
+  return inds.length?inds:null;
+}
 
-/* Fade-ins with IO + Safari/iOS fallback */
+/* ---------- Fade-ins + mobile nav ---------- */
+const navBtn=$('#navToggle'), menu=$('#menu');
+navBtn?.addEventListener('click',()=>menu.classList.toggle('open'));
+document.addEventListener('click',e=>{ if(menu && !menu.contains(e.target) && e.target!==navBtn) menu.classList.remove('open'); });
 (function(){
   const els=[...document.querySelectorAll('.reveal')];
-  if(!('IntersectionObserver' in window)){
-    document.documentElement.classList.add('no-io');els.forEach(el=>el.classList.add('show'));return;
-  }
-  const io=new IntersectionObserver((entries)=>entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}
-  }),{threshold:.12});
+  if(!('IntersectionObserver' in window)){ document.documentElement.classList.add('no-io'); els.forEach(el=>el.classList.add('show')); return; }
+  const io=new IntersectionObserver((ents)=>ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } }),{threshold:.12});
   els.forEach(el=>io.observe(el));
-  setTimeout(()=>{if(els.some(el=>!el.classList.contains('show')))els.forEach(el=>el.classList.add('show'))},800);
+  setTimeout(()=>{ if(els.some(el=>!el.classList.contains('show'))) els.forEach(el=>el.classList.add('show')); }, 900);
 })();
 
-/* Demo modal for "Try Now" */
-const modal=document.getElementById('modal'),title=document.getElementById('modalTitle'),go=document.getElementById('modalGo');
-document.querySelectorAll('[data-tool]').forEach(b=>b.addEventListener('click',()=>{title.textContent=b.dataset.tool;modal.showModal()}));
-go.addEventListener('click',e=>{e.preventDefault();alert('Upload simulated');modal.close()});
-modal.addEventListener('click',e=>{const r=modal.getBoundingClientRect();if(!(e.clientX>r.left&&e.clientX<r.right&&e.clientY>r.top&&e.clientY<r.bottom))modal.close()});
+/* ---------- pdf-lib helpers ---------- */
+const { PDFDocument, StandardFonts, rgb, degrees } = PDFLib;
+async function applyTextWatermark(pdfDoc, text, pos){
+  if(!text) return;
+  const font=await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+  for(const page of pdfDoc.getPages()){
+    const {width,height}=page.getSize();
+    const size=Math.min(width,height)*0.06, margin=24;
+    const tw=font.widthOfTextAtSize(text,size), th=size;
+    let x=(width-tw)/2, y=(height-th)/2, rot=0;
+    if(pos==='top'){ y=height-margin-th }
+    else if(pos==='bottom'){ y=margin }
+    else if(pos==='tl'){ x=margin; y=height-margin-th }
+    else if(pos==='tr'){ x=width-margin-tw; y=height-margin-th }
+    else if(pos==='bl'){ x=margin; y=margin }
+    else if(pos==='br'){ x=width-margin-tw; y=margin }
+    else { rot=315 }
+    page.drawText(text,{x,y,size,font,color:rgb(0.1,0.45,0.95),rotate:degrees(rot),opacity:0.35});
+  }
+}
 
-/* Testimonials carousel */
-const slider=document.getElementById('slider');let i=0,n=slider.children.length;
-function show(k){i=(k+n)%n;slider.style.transform=`translateX(-${i*100}%)`}
-document.getElementById('prev').onclick=()=>show(i-1);
-document.getElementById('next').onclick=()=>show(i+1);
-let t=setInterval(()=>show(i+1),5000);
+/* ---------- Merge PDFs ---------- */
+$('#mergeBtn').addEventListener('click', async ()=>{
+  const files=[...$('#mergeInput').files]; if(!files.length) return alert('Select PDF files to merge.');
+  const wm = $('#wmText').value.trim(); const pos=$('#wmPos').value;
+  const out=await PDFDocument.create();
+  for(const f of files){
+    const src=await PDFDocument.load(await fileToArrayBuffer(f));
+    const pages=await out.copyPages(src, src.getPageIndices());
+    pages.forEach(p=>out.addPage(p));
+  }
+  await applyTextWatermark(out, wm, pos);
+  const bytes=await out.save(); blobDownload(new Blob([bytes],{type:'application/pdf'}),'merged.pdf');
+});
+
+/* ---------- Split PDF ---------- */
+$('#splitBtn').addEventListener('click', async ()=>{
+  const file=$('#splitInput').files[0]; if(!file) return alert('Select a PDF to split.');
+  const src=await PDFDocument.load(await fileToArrayBuffer(file));
+  const inds=parseRanges($('#splitRanges').value, src.getPageCount());
+  if(!inds.length) return alert('Enter valid page ranges.');
+  const out=await PDFDocument.create();
+  const pages=await out.copyPages(src, inds);
+  pages.forEach(p=>out.addPage(p));
+  const bytes=await out.save(); blobDownload(new Blob([bytes],{type:'application/pdf'}),'split.pdf');
+});
+
+/* ---------- Image -> PDF ---------- */
+$('#img2pdfBtn').addEventListener('click', async ()=>{
+  const files=[...$('#imgInput').files]; if(!files.length) return alert('Select images.');
+  const doc=await PDFDocument.create();
+  const sizeSel=$('#pageSize').value; const margin=Math.max(0, parseInt($('#margin').value||'0',10));
+  const sizes={A4:[595.28,841.89], Letter:[612,792]};
+  for(const f of files){
+    const data=await f.arrayBuffer(); const mime=f.type.toLowerCase();
+    let img, iw, ih;
+    if(mime.includes('png')){ img=await doc.embedPng(data); iw=img.width; ih=img.height; }
+    else { img=await doc.embedJpg(data); iw=img.width; ih=img.height; }
+    let page;
+    if(sizeSel==='FitImage'){ page=doc.addPage([iw,ih]); page.drawImage(img,{x:0,y:0,width:iw,height:ih}); }
+    else{
+      const [pw,ph]=sizes[sizeSel]||sizes.A4; page=doc.addPage([pw,ph]);
+      const maxW=pw-margin*2, maxH=ph-margin*2; const s=Math.min(maxW/iw,maxH/ih); const w=iw*s,h=ih*s;
+      page.drawImage(img,{x:(pw-w)/2,y:(ph-h)/2,width:w,height:h});
+    }
+  }
+  const bytes=await doc.save(); blobDownload(new Blob([bytes],{type:'application/pdf'}),'images.pdf');
+});
+
+/* ---------- PDF Editor: reorder + watermark ---------- */
+$('#editApply').addEventListener('click', async ()=>{
+  const file=$('#editInput').files[0]; if(!file) return alert('Select a PDF.');
+  const src=await PDFDocument.load(await fileToArrayBuffer(file));
+  const count=src.getPageCount();
+  const inds=parseOrder($('#editOrder').value, count) || [...Array(count).keys()];
+  const out=await PDFDocument.create();
+  const pages=await out.copyPages(src, inds);
+  pages.forEach(p=>out.addPage(p));
+  await applyTextWatermark(out, $('#editWm').value.trim(), $('#editWmPos').value);
+  const bytes=await out.save(); blobDownload(new Blob([bytes],{type:'application/pdf'}),'edited.pdf');
+});
+
+/* ---------- Signature: canvas draw -> place on page ---------- */
+const pad=$('#signPad'); const ctx=pad.getContext('2d'); let drawing=false, last=[0,0];
+ctx.lineWidth=2.4; ctx.lineCap='round'; ctx.strokeStyle='#111827';
+function pos(e){ const r=pad.getBoundingClientRect(); const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left; const y=(e.touches?e.touches[0].clientY:e.clientY)-r.top; return [x,y]; }
+function start(e){drawing=true; last=pos(e);}
+function move(e){ if(!drawing) return; const [x,y]=pos(e); ctx.beginPath(); ctx.moveTo(...last); ctx.lineTo(x,y); ctx.stroke(); last=[x,y]; }
+function end(){drawing=false;}
+pad.addEventListener('mousedown',start); pad.addEventListener('mousemove',move); document.addEventListener('mouseup',end);
+pad.addEventListener('touchstart',e=>{start(e); e.preventDefault()},{passive:false});
+pad.addEventListener('touchmove',e=>{move(e); e.preventDefault()},{passive:false});
+pad.addEventListener('touchend',end);
+$('#clearSign').addEventListener('click',()=>{ ctx.clearRect(0,0,pad.width,pad.height); });
+
+$('#applySign').addEventListener('click', async ()=>{
+  const file=$('#signPdfInput').files[0]; if(!file) return alert('Select a PDF.');
+  const pageNum=Math.max(1, parseInt($('#signPage').value||'1',10));
+  const posSel=$('#signPos').value;
+  // to PNG -> Uint8
+  const dataURL=pad.toDataURL('image/png'); const pngBytes=await (await fetch(dataURL)).arrayBuffer();
+  const pdf=await PDFDocument.load(await fileToArrayBuffer(file));
+  const pages=pdf.getPages(); if(pageNum>pages.length) return alert(`PDF has only ${pages.length} pages.`);
+  const page=pages[pageNum-1];
+  const img=await pdf.embedPng(pngBytes); const {width:pw,height:ph}=page.getSize();
+  const scale=0.3 * (pw/img.width); const w=img.width*scale, h=img.height*scale;
+  const margin=24; let x=pw-w-margin, y=margin; // default BR
+  if(posSel==='bl'){ x=margin; y=margin; }
+  else if(posSel==='tr'){ x=pw-w-margin; y=ph-h-margin; }
+  else if(posSel==='tl'){ x=margin; y=ph-h-margin; }
+  else if(posSel==='center'){ x=(pw-w)/2; y=(ph-h)/2; }
+  page.drawImage(img,{x,y,width:w,height:h,opacity:0.95});
+  const out=await pdf.save(); blobDownload(new Blob([out],{type:'application/pdf'}),'signed.pdf');
+});
+
+/* ---------- Compress PDF (PDF.js raster -> pdf-lib re-embed) ---------- */
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@4.0.379/build/pdf.worker.min.js';
+$('#compressBtn').addEventListener('click', async ()=>{
+  const file=$('#compressInput').files[0]; if(!file) return alert('Select a PDF to compress.');
+  const quality=parseFloat($('#quality').value||'0.7'); const dpi=parseInt($('#dpi').value||'144',10);
+  const buffer=await fileToArrayBuffer(file);
+  const loadingTask=pdfjsLib.getDocument({data:buffer});
+  const pdf=await loadingTask.promise;
+  const out=await PDFDocument.create();
+  const pxPerInch=96; // CSS px/in
+  for(let p=1; p<=pdf.numPages; p++){
+    const page=await pdf.getPage(p);
+    const v=page.getViewport({scale:1});
+    // scale canvas so that resulting image approximates desired DPI
+    const scale = dpi/pxPerInch;
+    const viewport=page.getViewport({scale});
+    const canvas=document.createElement('canvas'), c=canvas.getContext('2d',{willReadFrequently:false});
+    canvas.width=viewport.width; canvas.height=viewport.height;
+    await page.render({canvasContext:c, viewport}).promise;
+    const jpg=canvas.toDataURL('image/jpeg', quality);
+    const jpgBytes=await (await fetch(jpg)).arrayBuffer();
+    const pagePdf=out.addPage([viewport.width, viewport.height]);
+    const img=await out.embedJpg(jpgBytes);
+    pagePdf.drawImage(img,{x:0,y:0,width:viewport.width,height:viewport.height});
+  }
+  const bytes=await out.save(); blobDownload(new Blob([bytes],{type:'application/pdf'}),'compressed.pdf');
+});
+
+/* ---------- Testimonials slider ---------- */
+const slider=document.getElementById('slider'); let idx=0, n=slider.children.length;
+function show(k){ idx=(k+n)%n; slider.style.transform=`translateX(-${idx*100}%)`; }
+document.getElementById('prev').onclick=()=>show(idx-1);
+document.getElementById('next').onclick=()=>show(idx+1);
+let t=setInterval(()=>show(idx+1),5000);
 slider.addEventListener('mouseenter',()=>clearInterval(t));
-slider.addEventListener('mouseleave',()=>t=setInterval(()=>show(i+1),5000));
+slider.addEventListener('mouseleave',()=>t=setInterval(()=>show(idx+1),5000));
 </script>
 </body>
 </html>
